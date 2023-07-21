@@ -1,3 +1,7 @@
 def call() {
-    powershell 'mvn test'
+    if (isUnix()) {
+        sh 'mvn test'
+        } else {
+            powershell 'mvn test'
+        }
 }
