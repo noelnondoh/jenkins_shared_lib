@@ -1,6 +1,10 @@
 def call(credentialsId){
 
     withSonarQubeEnv(credentialsId: credentialsId) {
-         sh 'mvn clean package sonar:sonar'
+        if (isUnix()) {
+            sh 'mvn clean package sonar:sonar'
+        } else {
+            bat 'mvn clean package sonar:sonar'
+        }          
     }
 }
