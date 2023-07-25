@@ -1,7 +1,11 @@
+// def call() {
+//     if (isUnix()) {
+//         sh 'mvn test'
+//     } else {
+//         bat 'mvn test'
+//     }
+// }
+
 def call() {
-    if (isUnix()) {
-        sh 'mvn test'
-    } else {
-        bat 'mvn test'
-    }
+    sh 'mvn test'
 }
