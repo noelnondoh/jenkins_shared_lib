@@ -1,10 +1,9 @@
-// def call(String project, String ImageTag, String hubUser){
-    
-//     sh """
-//      docker rmi ${hubUser}/${project}:${ImageTag}
-//      docker rmi ${hubUser}/${project} ${hubUser}/${project}:latest
-//     """
-// }
+def call(String ImageName, String ImageTag, String DockerHubUser){ 
+    sh """
+     docker rmi ${DockerHubUser}/${ImageName}:${ImageTag}
+     docker rmi ${DockerHubUser}/${ImageName} ${DockerHubUser}/${ImageName}:latest
+    """
+}
 
 
 // def call(String aws_account_id, String region, String ecr_repoName){
