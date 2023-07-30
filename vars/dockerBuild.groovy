@@ -4,7 +4,12 @@ def call(String ImageName, String ImageTag, String DockerHubUser){
     //     docker image tag ${hubUser}/${project} ${hubUser}/${project}:${ImageTag}
     //     docker image tag ${hubUser}/${project} ${hubUser}/${project}:latest
     // """
-    sh 'docker build -t ${DockerHubUser}/${ImageName} .'
+    // sh 'docker build -t ${DockerHubUser}/${ImageName} .'
+    sh """
+        docker image build -t ${DockerHubUser}/${ImageName} . 
+        docker image tag ${DockerHubUser}/${ImageName} ${DockerHubUser}/${ImageName}:${ImageTag}
+        docker image tag ${DockerHubUser}/${ImageName} ${DockerHubUser}/${ImageName}:latest
+    """
 }
 
 // def call(String aws_account_id, String region, String ecr_repoName){
